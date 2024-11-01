@@ -22,7 +22,10 @@ export default function Page() {
         </li> 
         <li>
           <Link href="/week-7">Week 7 Assignment</Link>
-        </li>     
+        </li>   
+        <li>
+          <Link href="/week-8">Week 8 Assignment</Link>
+        </li>    
       </ul>
     </main>
   );
