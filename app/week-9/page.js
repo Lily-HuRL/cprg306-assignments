@@ -1,4 +1,6 @@
 "use client";
+
+import Link from "next/link";
 // Import the useUserAuth hook
 import { useUserAuth } from "./_utils/auth-context";
 
@@ -23,6 +25,9 @@ export default function Page() {
                 {user ? (
                     <div>
                         <p>Welcome, {user.displayName} {user.email}!</p>
+                        <div className="my-5 hover:underline text-blue-500">
+                            <Link href="/week-9/shopping-list">Go to the shopping List!</Link>
+                        </div>
                         <button onClick={logout}>Sign out</button>
                     </div>
                 ) : (
