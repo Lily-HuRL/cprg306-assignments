@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useUserAuth } from "../_utils/auth-context";
 import { useEffect } from "react";
 
@@ -20,7 +19,7 @@ export default function Page() {
     const handleAddItem = async (newItem) => {
         try{
             const userId = await addItem(user.uid, newItem);
-            const newItemWithId = {id: userId, ...newItem};
+            const newItemWithId = {docId: userId, ...newItem};
             setItems([...items, newItemWithId]);
         } catch (error) {
             console.error(error);
@@ -39,15 +38,14 @@ export default function Page() {
             const itemToDelete = items.find(item => item.name === selectedItemName);
             if (itemToDelete) {
                 await deleteItem(user.uid, itemToDelete.docId);
-                const updatedItems = items.filter(item => item.docId !== itemToDelete.docId);
-                setItems(updatedItems);
+                setItems(items.filter(item => item.docId !== itemToDelete.docId));
                 setSelectedItemName(null);
             }
         } catch (error) {
             console.error(error);
         }
     }
-
+    
 
     async function loadItems() {
         const loadedItems = await getItems(user.uid);
