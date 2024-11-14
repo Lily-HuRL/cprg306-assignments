@@ -26,7 +26,7 @@ export default function Page() {
                     <div>
                         <p>Welcome, {user.displayName} {user.email}!</p>
                         <div className="my-5 hover:underline text-blue-500">
-                            <Link href="/week-9/shopping-list">Go to the Shopping List!</Link>
+                            <Link href="/week-10/shopping-list">Go to the Shopping List!</Link>
                         </div>
                         <button onClick={logout}>Sign out</button>
                     </div>
